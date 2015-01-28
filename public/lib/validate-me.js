@@ -3,6 +3,14 @@ var validateMeModule = (function () {
     var formId = '';
     var fields = {};
     var formObj;
+    
+    var message = {
+        'formNotExist': 'Form Does not exist, Validate Me can not validate you :('
+    };
+    
+    function _shout(message){
+        alert(message);
+    }
 
     function _log() {
         console.log(formId);
@@ -21,7 +29,7 @@ var validateMeModule = (function () {
         {
             // Form Exist
         }else{
-            alert('Form Does not exist');
+            _shout(message.formNotExist);
         }
     }
 
