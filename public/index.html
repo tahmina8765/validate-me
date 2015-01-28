@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Validate ME :)</title>
-	<link rel="stylesheet" href="css/style.css">
-	<script src="lib/validate-me.js"></script>
-</head>
-<body>
-	<div class="container">
-		<h1>Validate Me :)</h1><h2>A Javascript Form Validation Library</h2>
-		<form action="/" novalidate>
-			<div class="form-group">
-				<label for="">Name</label>
-				<input class="form-control" type="text" name="name" id="name">
-			</div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Validate ME :)</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="lib/validate-me.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Validate Me :)</h1>
+            <h2>A JavaScript Form Validation Library</h2>
+            <form action="/" name="myForm" id="myForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
 
-			<div class="form-group">
-				<label for="">E-mail</label>
-				<input class="form-control" type="text" name="email" id="email">
-			</div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input class="form-control" type="text" name="email" id="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input class="form-control" type="text" name="phone" id="phone">
+                </div>
 
-			<div class="form-group">
-				<input class="form-control" type="submit" name="submit" value="submit">
-			</div>
-		</form>
-	</div>
+                <div class="form-group">
+                    <input class="form-control" type="submit" name="submit" value="submit">
+                </div>
+            </form>
+        </div>
 
-	<script type="text/javascript">
-	validateMeModule.hello('Hello');
-	</script>
-</body>
+        <script type="text/javascript">
+            validateMeModule.init({
+                'formId': 'myForm',
+                'fields': {
+                    'name': 'nonempty',
+                    'email': 'email',
+                    'phone': {
+                        'regex': 'regular expression'
+                    }
+                },
+                'validateOn': 'submit',         // submit|blur
+                'mode': 'dev'                   // dev|prod
+            });
+        </script>
+    </body>
 </html>

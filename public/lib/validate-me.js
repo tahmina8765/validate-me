@@ -1,37 +1,44 @@
 var validateMeModule = (function () {
- 
-        var privateCounter = 0;
- 
-        function privateFunction() {
-            privateCounter++;
-        }
- 
-        function publicFunction() {
-            publicIncrement();
-        }
- 
-        function publicIncrement() {
-            privateFunction();
-        }
- 
-        function publicGetCount(){
-          return privateCounter;
-        }
 
-        function publicHello(message){
-          console.log(message);
+    var formId = '';
+    var fields = {};
+    var formObj;
+
+    function _log() {
+        console.log(formId);
+        if (fields) {
+            for (var key in fields) {
+                if (fields.hasOwnProperty(key)) {
+                    console.log(key + " -> " + fields[key]);
+                }
+            }
         }
- 
-        // Reveal public pointers to
-        // private functions and properties
- 
-       return {
-            hello: publicHello,
-            start: publicFunction,
-            increment: publicIncrement,
-            count: publicGetCount
-        };
- 
-    })();
- 
+    }
+
+    function _createFormObj() {
+        var formObj = document.getElementById(formId);
+        if (typeof (formObj) != 'undefined' && formObj != null)
+        {
+            // Form Exist
+        }else{
+            alert('Form Does not exist');
+        }
+    }
+
+
+    function publicInit(options) {
+        if (typeof options === 'object') {
+            formId = options.formId;
+            fields = options.fields;
+        }
+        _createFormObj();
+        _log();
+    }
+
+    return {
+        init: publicInit
+    };
+
+})();
+
 
