@@ -32,3 +32,6 @@ label{
 p{
     text-align: center;
 }
+.validate-me-error{
+    color: red;
+}
