@@ -8,9 +8,13 @@
     </head>
     <body>
         <div class="container">
-            <h1>Validate Me</h1>
-            <h2>A Pure JavaScript Library For your HTML Form Validation</h2>
-            <form action="/" name="myForm" id="AhadForm" method="post" novalidate>
+            <div class='heading-wraper'>
+                <div class="heading">
+                    <h1>Validate Me</h1>
+                </div>
+            </div>
+            <div class="slogan">A Pure JavaScript Library For your HTML Form Validation</div>
+            <form action="/" name="myForm" id="MyForm" method="post" novalidate>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input class="form-control" type="text" name="name" id="name">
@@ -30,21 +34,22 @@
                     <input class="form-control" type="text" name="phone" id="phone">
                 </div>
 
-                <div class="form-group">
-                    <input class="form-control" type="submit" name="submit" value="submit">
+                <div class="form-group text-right">
+                    <input class="btn" type="submit" name="submit" value="submit">
                 </div>
             </form>
         </div>
 
+
         <script type="text/javascript">
             validateMeModule.init({
-                'formId': 'AhadForm',
+                'formId': 'MyForm',
                 'fields': {
                     'name': {
                         'nonempty': true,
                         'equelto': 5
                     },
-                    'email': 'email'                    
+                    'email': 'email'
                 },
                 'validateOn': 'submit', // submit|blur; By default on submit. On blur under construction
                 'mode': 'dev'

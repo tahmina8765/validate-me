@@ -164,7 +164,7 @@ var validateMeModule = (function () {
     function _submit(e) {        
         var isValid = _validateFields();
         if (!isValid) {
-            alert("Please check your fields!");
+//            alert("Please check your fields!");
             e.preventDefault();
             return false;
         }
